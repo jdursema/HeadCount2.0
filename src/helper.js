@@ -11,7 +11,17 @@ class DistrictRepository {
       return acc
     }, [])
 
+
   }
+    findByName(location) {
+      if (location) {
+         let area = this.data.filter(dataPiece => console.log(dataPiece))
+        return area;
+      } else {
+        return undefined
+
+      }
+    }
   
 }
 
