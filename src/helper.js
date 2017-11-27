@@ -1,13 +1,11 @@
 import react, {Component} from 'react';
-import kinderData from '../data/kindergartners_in_full_day_program';
 
-
-export default class DistrictRepository {
-  constructor(){
+class DistrictRepository {
+  constructor(data){
     
-    this.data= kinderData.reduce((acc, dataPiece)=>{
-      if (!acc[dataPiece.Location]){
-        acc[dataPiece.Location]=[]
+    this.data = data.reduce((acc, dataPiece)=>{
+      if (!acc[dataPiece.Location]) {
+        acc[dataPiece.Location]= []
       }
       acc[dataPiece.Location].push(dataPiece)
       return acc
@@ -16,3 +14,5 @@ export default class DistrictRepository {
   }
   
 }
+
+export default DistrictRepository;
