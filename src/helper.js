@@ -6,8 +6,9 @@ class DistrictRepository {
     this.data = this.cleanData(data);
   }
   cleanData(data) {
-  
+    // console.log(data)
    let results =  data.reduce((accu, dataPiece) =>{
+    
       if(!accu[dataPiece.Location]) {
         accu[dataPiece.Location.toUpperCase()] = {
           location: dataPiece.Location.toUpperCase(),
@@ -27,9 +28,9 @@ class DistrictRepository {
 
       return accu
     }, {})
+    console.log(results)
 
-
-
+    // console.log(results)
     let resultsArray = Object.keys(results).map(location => results[location])
 
     return resultsArray
@@ -51,10 +52,14 @@ district.location === uppercaseLocation)
     
     }
 
-    findAllMatches(){
-      const matchArray = [...this.data]
-      console.log(matchArray)
-      return matchArray
+    findAllMatches(string){
+      if(!string){
+        return this.data
+      }
+      let uppercaseString = string.toUpperCase()
+
+      return this.data.filter((dataPiece)=>dataPiece.location.includes(uppercaseString))
+    
     }
   
 }
