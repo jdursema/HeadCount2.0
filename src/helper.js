@@ -4,9 +4,6 @@ class DistrictRepository {
   constructor(data){
     
     this.data = this.cleanData(data);
-    
-
-
   }
   cleanData(data) {
   
@@ -18,9 +15,20 @@ class DistrictRepository {
         }
         
       }
-        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] =dataPiece.Data
+
+      if(dataPiece.Data=== 'N/A'){
+        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] =0
+      }else{
+        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] = 
+        (Math.round(dataPiece.Data*1000))/1000
+      }
+
+        
+
       return accu
     }, {})
+
+
 
     let resultsArray = Object.keys(results).map(location => results[location])
 
@@ -29,7 +37,6 @@ class DistrictRepository {
 
 
   findByName(location) {
-    // console.log(this.data)
     if(!location){
       return undefined
     }
@@ -37,11 +44,9 @@ class DistrictRepository {
     let uppercaseLocation= location.toUpperCase()
 
     if(location){
-      let filteredArray = this.data.find((district) => 
-      {
-        return district.location===uppercaseLocation})
+      return this.data.find((district) => 
+district.location === uppercaseLocation)
       
-      return filteredArray
     }
     
     }
