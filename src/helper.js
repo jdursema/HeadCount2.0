@@ -4,28 +4,57 @@ class DistrictRepository {
   constructor(data){
     
     this.data = this.cleanData(data);
-    
-
-
   }
   cleanData(data) {
-   return data.reduce((accu, dataPiece) =>{
+  
+   let results =  data.reduce((accu, dataPiece) =>{
       if(!accu[dataPiece.Location]) {
-        accu[dataPiece.Location] = {
-          location: dataPiece.Location,
+        accu[dataPiece.Location.toUpperCase()] = {
+          location: dataPiece.Location.toUpperCase(),
           data: {}
         }
         
       }
-        accu[dataPiece.Location].data[dataPiece.TimeFrame] =dataPiece.Data
-      // console.log(accu)
+
+      if(dataPiece.Data=== 'N/A'){
+        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] =0
+      }else{
+        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] = 
+        (Math.round(dataPiece.Data*1000))/1000
+      }
+
+        
+
       return accu
     }, {})
+
+
+
+    let resultsArray = Object.keys(results).map(location => results[location])
+
+    return resultsArray
   }
 
 
-    findByName(location) {
-       
+  findByName(location) {
+    if(!location){
+      return undefined
+    }
+
+    let uppercaseLocation= location.toUpperCase()
+
+    if(location){
+      return this.data.find((district) => 
+district.location === uppercaseLocation)
+      
+    }
+    
+    }
+
+    findAllMatches(){
+      const matchArray = [...this.data]
+      console.log(matchArray)
+      return matchArray
     }
   
 }
