@@ -2,18 +2,36 @@ import React, { Component } from 'react';
 import './App.css';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import DistrictRepository from './helper';
+import Header from './Header';
+import CardContainer from './CardContainer';
+
 
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      data: []
+    }
 
   }
+
+componentDidMount() {
+  const district = new DistrictRepository(kinderData)
+  this.setState({data: district.data})
+
+}
+
+
 
   
 
   render() {
     return (
-      <div>Welcome To Headcount 2.0</div>
+      <div>
+        <Header />
+        <CardContainer schoolData={this.state.data}/>
+         
+      </div>
     );
   }
 }

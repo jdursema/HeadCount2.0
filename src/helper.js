@@ -9,7 +9,7 @@ class DistrictRepository {
     // console.log(data)
    let results =  data.reduce((accu, dataPiece) =>{
     
-      if(!accu[dataPiece.Location]) {
+      if(!accu[dataPiece.Location.toUpperCase()]) {
         accu[dataPiece.Location.toUpperCase()] = {
           location: dataPiece.Location.toUpperCase(),
           data: {}
@@ -28,7 +28,6 @@ class DistrictRepository {
 
       return accu
     }, {})
-    console.log(results)
 
     // console.log(results)
     let resultsArray = Object.keys(results).map(location => results[location])
