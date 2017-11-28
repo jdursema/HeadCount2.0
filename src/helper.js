@@ -1,18 +1,33 @@
 import react, {Component} from 'react';
-import kinderData from '../data/kindergartners_in_full_day_program';
 
-
-export default class DistrictRepository {
-  constructor(){
+class DistrictRepository {
+  constructor(data){
     
-    this.data= kinderData.reduce((acc, dataPiece)=>{
-      if (!acc[dataPiece.Location]){
-        acc[dataPiece.Location]=[]
-      }
-      acc[dataPiece.Location].push(dataPiece)
-      return acc
-    }, [])
+    this.data = this.cleanData(data);
+    
+
 
   }
+  cleanData(data) {
+   return data.reduce((accu, dataPiece) =>{
+      if(!accu[dataPiece.Location]) {
+        accu[dataPiece.Location] = {
+          location: dataPiece.Location,
+          data: {}
+        }
+        
+      }
+        accu[dataPiece.Location].data[dataPiece.TimeFrame] =dataPiece.Data
+      // console.log(accu)
+      return accu
+    }, {})
+  }
+
+
+    findByName(location) {
+       
+    }
   
 }
+
+export default DistrictRepository;
