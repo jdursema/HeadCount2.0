@@ -9,9 +9,10 @@ class App extends Component {
 
   }
 
-  componentDidMount() {
-    let district = new DistrictRepository(kinderData);
-  }
+  // componentDidMount() {
+  //   let district = new DistrictRepository(kinderData);
+    
+  // }
 
   
 

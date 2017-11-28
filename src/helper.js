@@ -3,24 +3,29 @@ import react, {Component} from 'react';
 class DistrictRepository {
   constructor(data){
     
-    this.data = data.reduce((acc, dataPiece)=>{
-      if (!acc[dataPiece.Location]) {
-        acc[dataPiece.Location]= []
-      }
-      acc[dataPiece.Location].push(dataPiece)
-      return acc
-    }, [])
+    this.data = this.cleanData(data);
+    
 
 
   }
-    findByName(location) {
-      if (location) {
-         let area = this.data.filter(dataPiece => console.log(dataPiece))
-        return area;
-      } else {
-        return undefined
-
+  cleanData(data) {
+   return data.reduce((accu, dataPiece) =>{
+      if(!accu[dataPiece.Location]) {
+        accu[dataPiece.Location] = {
+          location: dataPiece.Location,
+          data: {}
+        }
+        
       }
+        accu[dataPiece.Location].data[dataPiece.TimeFrame] =dataPiece.Data
+      // console.log(accu)
+      return accu
+    }, {})
+  }
+
+
+    findByName(location) {
+       
     }
   
 }
