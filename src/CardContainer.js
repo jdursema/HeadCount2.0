@@ -4,12 +4,19 @@ import Card from './Card';
 import './style/CardContainer.css'
 
 
-const CardContainer = ({schoolData, changeClass}) => {
+const CardContainer = ({schoolData, changeClass, selectedCards}) => {
      const mappedData =  schoolData.map((data)=>{
+       let type
+       if(selectedCards.length > 1 && (data.location === selectedCards[0].location || data.location === selectedCards[1].location)){
+         type = 'card selected'
+       } else{
+         type = 'card'
+       }
         return <Card key={data.location} 
                      location={data.location} 
                      data={data.data}
-                     changeClass={changeClass} 
+                     changeClass={changeClass}
+                     type = {type} 
                />
       });
 

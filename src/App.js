@@ -33,7 +33,7 @@ changeClass = (location) => {
   let filteredArray = this.state.selectedArray.filter((dataPiece)=>{
     return dataPiece.location === location
   })
-  if(this.state.selectedArray.length<=1){
+  
     if(filteredArray.length>=1){
       let removedLocationArray = this.state.selectedArray.filter((dataPiece)=>{
         return dataPiece.location !== location
@@ -41,10 +41,12 @@ changeClass = (location) => {
       this.setState({selectedArray: removedLocationArray})
 
     } else {
-      const selected = [...this.state.selectedArray, district.findByName(location)];
-      this.setState({selectedArray: selected})
+      if(this.state.selectedArray.length<=1){
+        const selected = [...this.state.selectedArray, district.findByName(location)];
+        this.setState({selectedArray: selected})
+      }
+      
     }
-  }
   
 }
 
@@ -53,7 +55,7 @@ changeClass = (location) => {
       <div>
         <Header />
         <Search search={this.search}/>
-        <CardContainer schoolData={this.state.data} changeClass={this.changeClass} /> 
+        <CardContainer schoolData={this.state.data} changeClass={this.changeClass} selectedCards = {this.state.selectedArray}/> 
       </div>
     );
   }
