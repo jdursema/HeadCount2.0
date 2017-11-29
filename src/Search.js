@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
+import './style/search.css'
 
-class Search extends Component {
-  constructor({Search}) {
-    super();
-    this.state = {
-      input:''
-    }
-  }
-  render(){
-    return(
-      <div>
-        <input placeholder='Search'/>
-      </div>
-    )
-  }
+const Search = ({Search}) => {
+  return(
+    <input placeholder='search'/>
+  )
 }
 export default Search;
