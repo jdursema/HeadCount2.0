@@ -2,10 +2,10 @@ import React from 'react';
 import './style/Card.css'
 import PropTypes from 'prop-types';
 
-const Card = ({location, data, changeClass}) => {
+const Card = ({location, data, changeClass, type}) => {
   const years = Object.keys(data)
   return (
-    <div className='card'
+    <div className={type}
          onClick={() => changeClass(location)} >
       <h2>{location}</h2>
         {
