@@ -3,14 +3,15 @@ import Card from './Card';
 
 
 const CardContainer = ({schoolData}) => {
+     const mappedData =  schoolData.map((data)=>{
+        return <Card location = {data.location} data={data.data} />
+      });
+    
   
   
   return (
     <div>
-      {schoolData.map((data)=>{
-        return <Card location = {data.location} data={data.data} />
-      })
-    }
+      {mappedData}
     </div>
   )
 }
