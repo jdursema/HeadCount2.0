@@ -2,13 +2,14 @@ import React from 'react';
 import './style/Card.css'
 import PropTypes from 'prop-types';
 
-const Card = ({location, data}) => {
+const Card = ({location, data, changeClass}) => {
   const years = Object.keys(data)
   return (
-    <div className='card'>
+    <div className='card'
+         onClick={() => changeClass(location)} >
       <h2>{location}</h2>
         {
-          years.map(year => {
+          years.map((year, index) => {
             if(data[year]>=.5){
               return (
                   <p className='high'>{year} {data[year]}</p>
