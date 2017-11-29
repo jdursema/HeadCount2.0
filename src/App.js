@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style/App.css'
+import './App.css'
 import kinderData from '../data/kindergartners_in_full_day_program';
 import DistrictRepository from './helper';
 import Header from './Header';
