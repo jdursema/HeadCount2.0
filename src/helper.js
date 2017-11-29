@@ -1,4 +1,3 @@
-import react, {Component} from 'react';
 
 class DistrictRepository {
   constructor(data){
@@ -7,7 +6,7 @@ class DistrictRepository {
   }
   cleanData(data) {
     
-   let results =  data.reduce((accu, dataPiece) =>{
+   let results =  data.reduce((accu, dataPiece) => {
     let upperCaseLocation = dataPiece.Location.toUpperCase();
     let upperCaseKeys = dataPiece.Location.toUpperCase();
     let dataTime = dataPiece.TimeFrame;
@@ -20,17 +19,16 @@ class DistrictRepository {
         
       }
 
-      if(dataPiece.Data=== 'N/A'){
+      if(dataPiece.Data=== 'N/A') {
         accu[upperCaseKeys].data[dataTime] =0
-      }else{
+      } else {
         accu[upperCaseKeys].data[dataTime] = 
         (Math.round(dataPiece.Data*1000))/1000
       }
 
-        
-
       return accu
-    }, {})
+
+  }, {})
 
     let resultsArray = Object.keys(results).map(location => results[location])
 
@@ -45,17 +43,18 @@ class DistrictRepository {
 
     let uppercaseLocation= location.toUpperCase()
 
-    if(location){
+    if(location) {
       return this.data.find((district) => district.location === uppercaseLocation)
       
-    }
-    
+     }
+  
     }
 
-    findAllMatches(string){
-      if(!string){
+    findAllMatches(string) {
+      if(!string) {
         return this.data
       }
+
       let uppercaseString = string.toUpperCase()
 
       return this.data.filter((dataPiece)=>dataPiece.location.includes(uppercaseString))
