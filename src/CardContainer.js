@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
+import './style/CardContainer.css'
 
 
 const CardContainer = ({schoolData}) => {
@@ -12,7 +13,7 @@ const CardContainer = ({schoolData}) => {
       });
 
   return (
-    <div>
+    <div className='card-container'>
       {mappedData}
     </div>
   )

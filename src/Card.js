@@ -1,19 +1,24 @@
 import React from 'react';
+import './style/Card.css'
 import PropTypes from 'prop-types';
 
 const Card = ({location, data}) => {
   const years = Object.keys(data)
   return (
-    <div>
+    <div className='card'>
       <h2>{location}</h2>
         {
-          years.map((year, index) => {
-            return (
-              <div>
-                <p>{year}</p>
-                <p>{data[year]}</p>
-              </div>
-              )
+          years.map(year => {
+            if(data[year]>=.5){
+              return (
+                  <p className='high'>{year} {data[year]}</p>
+                )
+            } else {
+              return (
+                  <p className='low'>{year} {data[year]}</p>
+                )
+            }
+            
           })
         }
     </div>

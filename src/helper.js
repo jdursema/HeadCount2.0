@@ -19,7 +19,8 @@ class DistrictRepository {
         
       }
 
-      if(dataPiece.Data=== 'N/A') {
+      if(dataPiece.Data=== 'N/A'||dataPiece.Data==='#DIV/0!'
+      ) {
         accu[upperCaseKeys].data[dataTime] =0
       } else {
         accu[upperCaseKeys].data[dataTime] = 
