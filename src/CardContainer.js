@@ -4,11 +4,12 @@ import Card from './Card';
 import './style/CardContainer.css'
 
 
-const CardContainer = ({schoolData}) => {
+const CardContainer = ({schoolData, changeClass}) => {
      const mappedData =  schoolData.map((data)=>{
         return <Card key={data.location} 
                      location={data.location} 
-                     data={data.data} 
+                     data={data.data}
+                     changeClass={changeClass} 
                />
       });
 

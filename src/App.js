@@ -11,7 +11,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      selectedArray: []
     }
 
   }
@@ -21,24 +22,28 @@ componentDidMount() {
   this.setState({data: district.data})
 }
 
-search=(string)=>{
+search = (string)=> {
   const district = new DistrictRepository(kinderData)
   let filteredData= district.findAllMatches(string)
   this.setState({data: filteredData})
+}
+
+changeClass = (location) => {
+  const district = new DistrictRepository(kinderData);
+  const selected = [...this.state.selectedArray, district.findByName(location)];
+  this.setState({selectedArray: selected})
 }
 
 
 
   
 
-  render() {
+  render = () => {
     return (
       <div>
         <Header />
         <Search search={this.search}/>
-
-        <CardContainer schoolData={this.state.data}/>
-         
+        <CardContainer schoolData={this.state.data} changeClass={this.changeClass} /> 
       </div>
     );
   }
