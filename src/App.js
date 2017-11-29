@@ -36,6 +36,7 @@ search=(string)=>{
       <div>
         <Header />
         <Search search={this.search}/>
+
         <CardContainer schoolData={this.state.data}/>
          
       </div>
