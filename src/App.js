@@ -30,13 +30,23 @@ search = (string)=> {
 
 changeClass = (location) => {
   const district = new DistrictRepository(kinderData);
-  const selected = [...this.state.selectedArray, district.findByName(location)];
-  this.setState({selectedArray: selected})
-}
+  let filteredArray = this.state.selectedArray.filter((dataPiece)=>{
+    return dataPiece.location === location
+  })
+  if(this.state.selectedArray.length<=1){
+    if(filteredArray.length>=1){
+      let removedLocationArray = this.state.selectedArray.filter((dataPiece)=>{
+        return dataPiece.location !== location
+      })
+      this.setState({selectedArray: removedLocationArray})
 
-
-
+    } else {
+      const selected = [...this.state.selectedArray, district.findByName(location)];
+      this.setState({selectedArray: selected})
+    }
+  }
   
+}
 
   render = () => {
     return (
