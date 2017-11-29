@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = ({location, data}) => {
   const years = Object.keys(data)
@@ -6,7 +7,7 @@ const Card = ({location, data}) => {
     <div>
       <h2>{location}</h2>
         {
-          years.map(year => {
+          years.map((year, index) => {
             return (
               <div>
                 <p>{year}</p>
@@ -20,3 +21,8 @@ const Card = ({location, data}) => {
 }
 
 export default Card;
+
+Card.propTypes = {
+  location: PropTypes.string,
+  data: PropTypes.object
+}

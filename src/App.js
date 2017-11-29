@@ -4,6 +4,7 @@ import kinderData from '../data/kindergartners_in_full_day_program';
 import DistrictRepository from './helper';
 import Header from './Header';
 import CardContainer from './CardContainer';
+import Search from './Search';
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ componentDidMount() {
     return (
       <div>
         <Header />
+        <Search />
         <CardContainer schoolData={this.state.data}/>
          
       </div>
