@@ -61,6 +61,28 @@ class DistrictRepository {
       return this.data.filter((dataPiece)=>dataPiece.location.includes(uppercaseString))
     
     }
+
+    findAverage(string){
+      let filteredData= this.data.filter((dataObj)=>{
+        return (dataObj.location === string)
+      })
+      let yearKeys =Object.keys(filteredData[0].data)
+
+     let average = yearKeys.reduce((acc, year)=>{
+       acc += (filteredData[0].data[year])/11
+
+       return acc
+       
+     },0)
+
+
+     let roundedAverage =(Math.round(average*1000))/1000
+
+     return roundedAverage
+
+      
+    }
+
   
 }
 
