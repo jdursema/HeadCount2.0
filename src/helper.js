@@ -83,6 +83,15 @@ class DistrictRepository {
       
     }
 
+    compareDistrictAverages(location1, location2) {
+      location1 = location1.toUpperCase();
+      location2 = location2.toUpperCase();
+      const location1Average = this.findAverage(location1);
+      const location2Average = this.findAverage(location2);
+        const comparedAverage = (Math.round(location1Average / location2Average*1000)) / 1000;
+        return {[location1]: location1Average, [location2]: location2Average, 'compared': comparedAverage}
+    }
+
   
 }
 
