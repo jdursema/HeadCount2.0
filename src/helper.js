@@ -6,21 +6,24 @@ class DistrictRepository {
     this.data = this.cleanData(data);
   }
   cleanData(data) {
-    // console.log(data)
-   let results =  data.reduce((accu, dataPiece) =>{
     
-      if(!accu[dataPiece.Location.toUpperCase()]) {
-        accu[dataPiece.Location.toUpperCase()] = {
-          location: dataPiece.Location.toUpperCase(),
+   let results =  data.reduce((accu, dataPiece) =>{
+    let upperCaseLocation = dataPiece.Location.toUpperCase();
+    let upperCaseKeys = dataPiece.Location.toUpperCase();
+    let dataTime = dataPiece.TimeFrame;
+
+      if(!accu[upperCaseLocation]) {
+        accu[upperCaseLocation] = {
+          location: upperCaseLocation,
           data: {}
         }
         
       }
 
       if(dataPiece.Data=== 'N/A'){
-        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] =0
+        accu[upperCaseKeys].data[dataTime] =0
       }else{
-        accu[dataPiece.Location.toUpperCase()].data[dataPiece.TimeFrame] = 
+        accu[upperCaseKeys].data[dataTime] = 
         (Math.round(dataPiece.Data*1000))/1000
       }
 
@@ -29,7 +32,6 @@ class DistrictRepository {
       return accu
     }, {})
 
-    // console.log(results)
     let resultsArray = Object.keys(results).map(location => results[location])
 
     return resultsArray
@@ -44,8 +46,7 @@ class DistrictRepository {
     let uppercaseLocation= location.toUpperCase()
 
     if(location){
-      return this.data.find((district) => 
-district.location === uppercaseLocation)
+      return this.data.find((district) => district.location === uppercaseLocation)
       
     }
     
