@@ -5,6 +5,7 @@ import DistrictRepository from './helper';
 import Header from './Header';
 import CardContainer from './CardContainer';
 import Search from './Search';
+import CompareContainer from './CompareContainer'
 
 
 class App extends Component {
@@ -57,6 +58,7 @@ changeClass(location) {
     return (
       <div>
         <Header />
+        <CompareContainer/>
         <Search search={this.search}/>
         <CardContainer schoolData={this.state.data} changeClass={this.changeClass} selectedCards = {this.state.selectedArray}/> 
       </div>
