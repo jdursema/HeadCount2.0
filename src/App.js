@@ -18,7 +18,6 @@ class App extends Component {
 
     this.changeClass = this.changeClass.bind(this);
     this.search = this.search.bind(this);
-
   }
 
 componentDidMount() {
@@ -54,11 +53,16 @@ changeClass(location) {
   
 }
 
+compareCards(location1, location2) {
+  const district = new DistrictRepository(kinderData)
+
+}
+
   render() {
     return (
       <div>
         <Header />
-        <CompareContainer/>
+        <CompareContainer selectedArray={this.state.selectedArray}changeClass={this.changeClass}/>
         <Search search={this.search}/>
         <CardContainer schoolData={this.state.data} changeClass={this.changeClass} selectedCards = {this.state.selectedArray}/> 
       </div>
