@@ -7,9 +7,6 @@
   align-items: center;
   margin-bottom: 2%;
 }
-.card:active {
-  border: 5px solid orange;
-}
 
 .high {
   color: black;
@@ -18,3 +15,8 @@
 .low {
   color: red;
 }
+
+.card.selected {
+  border: 5px solid orange;
+}
+
