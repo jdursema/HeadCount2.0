@@ -7,21 +7,27 @@ const Card = ({location, data, changeClass, type}) => {
   return (
     <div className={type}
          onClick={() => changeClass(location)} >
-      <h2>{location}</h2>
+      <h3>{location}</h3>
+        <table>
         {
           years.map((year, index) => {
             if(data[year]>=.5){
               return (
-                  <p className='high'>{year} {data[year]}</p>
+                  <tr>
+                  <td className='high'>{year}: {data[year]}</td>
+                  </tr>
                 )
             } else {
               return (
-                  <p className='low'>{year} {data[year]}</p>
+                 <tr>
+                  <td className='low'>{year}: {data[year]}</td>
+                 </tr>
                 )
             }
             
           })
         }
+      </table>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 .header {
-  background-color: beige;
+  background-color: #E5CBCA;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,5 +12,5 @@
 h1 {
   font-size: 33px;
   margin: 0px;
-  color: pink;
+  color: #0D334F;
 }
