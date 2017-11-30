@@ -19,13 +19,11 @@ class DistrictRepository {
         
       }
 
-      if(dataPiece.Data=== 'N/A'||dataPiece.Data==='#DIV/0!'
-      ) {
-        accu[upperCaseKeys].data[dataTime] =0
+      if(dataPiece.Data=== 'N/A'|| dataPiece.Data==='#DIV/0!') {
+        accu[upperCaseKeys].data[dataTime] = 0
       } else {
-        accu[upperCaseKeys].data[dataTime] = 
-        (Math.round(dataPiece.Data*1000))/1000
-      }
+        accu[upperCaseKeys].data[dataTime] = (Math.round(dataPiece.Data*1000))/1000
+       }
 
       return accu
 

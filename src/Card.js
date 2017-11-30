@@ -9,6 +9,7 @@ const Card = ({location, data, changeClass, type}) => {
          onClick={() => changeClass(location)} >
       <h3>{location}</h3>
         <table>
+         <tbody>
         {
           years.map((year, index) => {
             if(data[year]>=.5){
@@ -29,6 +30,7 @@ const Card = ({location, data, changeClass, type}) => {
             
           })
         }
+        </tbody>
       </table>
     </div>
   )
@@ -38,5 +40,6 @@ export default Card;
 
 Card.propTypes = {
   location: PropTypes.string,
-  data: PropTypes.object
+  data: PropTypes.object,
+  onChange: PropTypes.func
 }

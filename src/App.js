@@ -16,6 +16,9 @@ class App extends Component {
       selectedArray: []
     }
 
+    this.changeClass = this.changeClass.bind(this);
+    this.search = this.search.bind(this);
+
   }
 
 componentDidMount() {
@@ -23,20 +26,20 @@ componentDidMount() {
   this.setState({data: district.data})
 }
 
-search = (string)=> {
+search(string)  {
   const district = new DistrictRepository(kinderData)
   let filteredData= district.findAllMatches(string)
   this.setState({data: filteredData})
 }
 
-changeClass = (location) => {
+changeClass(location) {
   const district = new DistrictRepository(kinderData);
-  let filteredArray = this.state.selectedArray.filter((dataPiece)=>{
+  let filteredArray = this.state.selectedArray.filter(dataPiece => {
     return dataPiece.location === location
   })
   
     if(filteredArray.length>=1){
-      let removedLocationArray = this.state.selectedArray.filter((dataPiece)=>{
+      let removedLocationArray = this.state.selectedArray.filter(dataPiece => {
         return dataPiece.location !== location
       })
       this.setState({selectedArray: removedLocationArray})
@@ -51,7 +54,7 @@ changeClass = (location) => {
   
 }
 
-  render = () => {
+  render() {
     return (
       <div>
         <Header />
