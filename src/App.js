@@ -30,14 +30,10 @@ search = (string)=> {
 
 changeClass = (location) => {
   const district = new DistrictRepository(kinderData);
-  let filteredArray = this.state.selectedArray.filter((dataPiece)=>{
-    return dataPiece.location === location
-  })
+  let filteredArray = this.state.selectedArray.filter((dataPiece)=> dataPiece.location === location)
   
     if(filteredArray.length>=1){
-      let removedLocationArray = this.state.selectedArray.filter((dataPiece)=>{
-        return dataPiece.location !== location
-      })
+      let removedLocationArray = this.state.selectedArray.filter(dataPiece => dataPiece.location !== location)
       this.setState({selectedArray: removedLocationArray})
 
     } else {
@@ -50,15 +46,13 @@ changeClass = (location) => {
   
 }
 
-  render = () => {
-    return (
+  render = () => (
       <div>
         <Header />
         <Search search={this.search}/>
         <CardContainer schoolData={this.state.data} changeClass={this.changeClass} selectedCards = {this.state.selectedArray}/> 
       </div>
-    );
-  }
+  );
 }
 
 export default App;

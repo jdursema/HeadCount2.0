@@ -32,5 +32,7 @@ const CardContainer = ({schoolData, changeClass, selectedCards}) => {
 export default CardContainer;
 
 CardContainer.propTypes = {
-  schoolData: PropTypes.array
+  schoolData: PropTypes.array,
+  changeClass: PropTypes.func,
+  selectedCards: PropTypes.array
 }
