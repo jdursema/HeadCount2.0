@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css'
+import './App.css';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import DistrictRepository from './helper';
 import Header from './Header';
 import CardContainer from './CardContainer';
 import Search from './Search';
-import CompareContainer from './CompareContainer'
+import CompareContainer from './CompareContainer';
 
 
 class App extends Component {
@@ -14,49 +14,43 @@ class App extends Component {
     this.state = {
       data: [],
       selectedArray: []
-    }
+    };
 
     this.changeClass = this.changeClass.bind(this);
     this.search = this.search.bind(this);
   }
 
-componentDidMount() {
-  const district = new DistrictRepository(kinderData)
-  this.setState({data: district.data})
-}
+  componentDidMount() {
+    const district = new DistrictRepository(kinderData);
 
-search(string)  {
-  const district = new DistrictRepository(kinderData)
-  let filteredData= district.findAllMatches(string)
-  this.setState({data: filteredData})
-}
+    this.setState({data: district.data});
+  }
 
-changeClass(location) {
-  const district = new DistrictRepository(kinderData);
-  let filteredArray = this.state.selectedArray.filter(dataPiece => {
-    return dataPiece.location === location
-  })
-  
+  search(string)  {
+    const district = new DistrictRepository(kinderData);
+    let filteredData= district.findAllMatches(string);
+
+    this.setState({data: filteredData});
+  }
+
+  changeClass(location) {
+    const district = new DistrictRepository(kinderData);
+    let filteredArray = this.state.selectedArray.filter(dataPiece => dataPiece.location === location);
+
     if(filteredArray.length>=1){
-      let removedLocationArray = this.state.selectedArray.filter(dataPiece => {
-        return dataPiece.location !== location
-      })
-      this.setState({selectedArray: removedLocationArray})
+      let removedLocationArray = this.state.selectedArray.filter(dataPiece => dataPiece.location !== location);
+      
+      this.setState({selectedArray: removedLocationArray});
 
     } else {
       if(this.state.selectedArray.length<=1){
         const selected = [...this.state.selectedArray, district.findByName(location)];
-        this.setState({selectedArray: selected})
+
+        this.setState({selectedArray: selected});
       }
       
     }
-  
-}
-
-compareCards(location1, location2) {
-  const district = new DistrictRepository(kinderData)
-
-}
+  }
 
   render() {
     return (
