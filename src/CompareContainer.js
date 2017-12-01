@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import './style/CompareContainer.css'
 
 const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
   const mappedSectedCards= selectedArray.map((selectedCard)=>{
@@ -18,13 +19,7 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
     comparisonData= compareCard(selectedArray[0].location, selectedArray[1].location) 
     keys= Object.keys(comparisonData)
     mappedCompared= keys.map((key)=>{
-      return(
-        <div>
-          <h3>{key}</h3>
-          <h4>{comparisonData[key]}</h4>
-          <h5>{comparisonData.compared}</h5>
-        </div> 
-      )
+      return <h3>{key}: {comparisonData[key]}</h3> 
     })
   }
 
@@ -32,14 +27,15 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
   
   
   return(
-    <div>
+    <div className='compared-cards-section'>
       {
-        mappedSectedCards[0] &&
         mappedSectedCards[0]
       }
+      <div className='card'>
       {mappedCompared}
+      </div>
+      
       {
-        mappedSectedCards[1] &&
         mappedSectedCards[1]
       }
     </div>
