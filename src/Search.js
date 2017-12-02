@@ -1,5 +1,6 @@
 import React from 'react';
 import './style/search.css';
+import PropTypes from 'prop-types';
 
 const Search = ({search}) => {
 
@@ -11,3 +12,7 @@ const Search = ({search}) => {
 };
 
 export default Search;
+
+Search.propTypes = {
+  search: PropTypes.func
+}

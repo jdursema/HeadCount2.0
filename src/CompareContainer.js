@@ -49,5 +49,6 @@ export default CompareContainer;
 
 CompareContainer.PropTypes = {
   selectedArray: PropTypes.array,
-  changeClass: PropTypes.func
+  changeClass: PropTypes.func,
+  compareCard: PropTypes.string
 };

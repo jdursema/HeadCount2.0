@@ -1,0 +1,240 @@
+exports[`CardContainer Test should match snap of cardContainer 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CardContainer
+    changeClass={[Function]}
+    schoolData={
+        Array [
+            Object {
+              "data": Object {
+                "2004": 1,
+                "2005": 0.5,
+              },
+              "location": "COLORADO",
+            },
+            Object {
+              "data": Object {
+                "2004": 1,
+                "2005": 0.5,
+              },
+              "location": "SPRINGFIELD",
+            },
+            Object {
+              "data": Object {
+                "2004": 1,
+                "2005": 0.5,
+              },
+              "location": "ASPEN",
+            },
+          ]
+    }
+    selectedCards={Array []} />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Card
+          changeClass={[Function]}
+          data={
+                    Object {
+                              "2004": 1,
+                              "2005": 0.5,
+                            }
+          }
+          location="COLORADO"
+          type="card" />,
+        <Card
+          changeClass={[Function]}
+          data={
+                    Object {
+                              "2004": 1,
+                              "2005": 0.5,
+                            }
+          }
+          location="SPRINGFIELD"
+          type="card" />,
+        <Card
+          changeClass={[Function]}
+          data={
+                    Object {
+                              "2004": 1,
+                              "2005": 0.5,
+                            }
+          }
+          location="ASPEN"
+          type="card" />,
+      ],
+      "className": "card-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "COLORADO",
+        "nodeType": "function",
+        "props": Object {
+          "changeClass": [Function],
+          "data": Object {
+            "2004": 1,
+            "2005": 0.5,
+          },
+          "location": "COLORADO",
+          "type": "card",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "SPRINGFIELD",
+        "nodeType": "function",
+        "props": Object {
+          "changeClass": [Function],
+          "data": Object {
+            "2004": 1,
+            "2005": 0.5,
+          },
+          "location": "SPRINGFIELD",
+          "type": "card",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "ASPEN",
+        "nodeType": "function",
+        "props": Object {
+          "changeClass": [Function],
+          "data": Object {
+            "2004": 1,
+            "2005": 0.5,
+          },
+          "location": "ASPEN",
+          "type": "card",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Card
+            changeClass={[Function]}
+            data={
+                        Object {
+                                    "2004": 1,
+                                    "2005": 0.5,
+                                  }
+            }
+            location="COLORADO"
+            type="card" />,
+          <Card
+            changeClass={[Function]}
+            data={
+                        Object {
+                                    "2004": 1,
+                                    "2005": 0.5,
+                                  }
+            }
+            location="SPRINGFIELD"
+            type="card" />,
+          <Card
+            changeClass={[Function]}
+            data={
+                        Object {
+                                    "2004": 1,
+                                    "2005": 0.5,
+                                  }
+            }
+            location="ASPEN"
+            type="card" />,
+        ],
+        "className": "card-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "COLORADO",
+          "nodeType": "function",
+          "props": Object {
+            "changeClass": [Function],
+            "data": Object {
+              "2004": 1,
+              "2005": 0.5,
+            },
+            "location": "COLORADO",
+            "type": "card",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "SPRINGFIELD",
+          "nodeType": "function",
+          "props": Object {
+            "changeClass": [Function],
+            "data": Object {
+              "2004": 1,
+              "2005": 0.5,
+            },
+            "location": "SPRINGFIELD",
+            "type": "card",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "ASPEN",
+          "nodeType": "function",
+          "props": Object {
+            "changeClass": [Function],
+            "data": Object {
+              "2004": 1,
+              "2005": 0.5,
+            },
+            "location": "ASPEN",
+            "type": "card",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
