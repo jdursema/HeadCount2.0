@@ -1,6 +1,8 @@
+/*eslint-disable no-unused-vars*/
 import React from 'react';
-import PropTypes from 'prop-types';
+/*eslint-disable no-unused-vars*/
 import Card from './Card';
+import PropTypes from 'prop-types';
 import './style/CardContainer.css';
 
 
