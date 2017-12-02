@@ -20,11 +20,11 @@ h3 {
 }
 
 .high {
-  color: red;
+  color:black;
 }
 
 .low {
-  color: black;
+  color: red;
 }
 
 .card.selected {

@@ -14,4 +14,17 @@ describe('Card Test', () => {
 
   })
 
+  describe('Card Tests', () => {
+    it('should match the snapshot', () => {
+      const mockFunc = jest.fn()
+
+      const renderedApp = shallow( <Card  key={data.location} 
+                                          location={data.location} 
+                                          data={data.data}
+                                          changeClass={mockFunc}
+                                          type = {type} 
+               />)
+     
+    })
+
 })
