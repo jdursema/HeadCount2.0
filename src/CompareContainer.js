@@ -18,8 +18,8 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
   if (mappedSectedCards.length === 2) {
     comparisonData= compareCard(selectedArray[0].location, selectedArray[1].location) 
     keys= Object.keys(comparisonData)
-    mappedCompared= keys.map((key)=>{
-      return <h3>{key}: {comparisonData[key]}</h3> 
+    mappedCompared= keys.map((key, index)=>{
+      return <h3 key={index}>{key}: {comparisonData[key]}</h3> 
     })
   }
 
@@ -31,8 +31,9 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
       {
         mappedSectedCards[0]
       }
+      
       <div className='card'>
-      {mappedCompared}
+        {mappedCompared}
       </div>
       
       {

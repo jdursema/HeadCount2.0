@@ -14,14 +14,14 @@ const Card = ({location, data, changeClass, type}) => {
           years.map((year, index) => {
             if(data[year]>=.5){
               return (
-                  <tr className='high'>
+                  <tr className='high' key={index}>
                     <td >{year}: </td>
                     <td >{data[year]}</td>
                   </tr>
                 )
             } else {
               return (
-                 <tr className='low'>
+                 <tr className='low' key={index}>
                   <td>{year}: </td>
                   <td>{data[year]}</td>
                  </tr>
