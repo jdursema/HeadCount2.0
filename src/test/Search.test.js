@@ -27,5 +27,17 @@ describe('Search Test', () => {
     expect(search).toMatchSnapshot()
   });
 
+  it('should run search function on input change', () =>{
+    const mockFunc = jest.fn();
+    const search = shallow(<Search search= {mockFunc} />)
+    const inputField = search.find('input')
+
+    expect(mockFunc.mock.calls.length).toEqual(0)
+    
+    inputField.simulate('change', {target: {value: 'hi'}})
+
+    expect(mockFunc.mock.calls.length).toEqual(1)
+  })
+
 });
 
