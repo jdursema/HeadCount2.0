@@ -6,15 +6,17 @@ import CompareContainer from './CompareContainer';
 describe('CompareContainer ', () => {
 
   it('should be defined', () => {
-    const compareContainer = shallow(<CompareContainer selectedArray={[]}changeClass={'changeClass'} />)
+    const mockFunc = jest.fn();
+    const compareContainer = shallow(<CompareContainer selectedArray={[]}changeClass={mockFunc} />)
     expect(compareContainer).toBeDefined();
   });
 
   it('should receive props', () => {
-    const compareContainer = shallow(<CompareContainer selectedArray={[]}changeClass={'changeClass'} />)
+    const mockFunc = jest.fn();
+    const compareContainer = shallow(<CompareContainer selectedArray={[]}changeClass={mockFunc} />)
 
     expect(compareContainer.instance().props.selectedArray).toEqual([])
-    expect(compareContainer.instance().props.changeClass).toEqual('changeClass')
+    expect(compareContainer.instance().props.changeClass).toEqual(mockFunc)
   });
 
 });
