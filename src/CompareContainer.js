@@ -1,9 +1,11 @@
 import React from 'react';
 import Card from './Card';
+import PropTypes from 'prop-types';
 import './style/CompareContainer.css'
 
 const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
   const mappedSectedCards= selectedArray.map((selectedCard)=>{
+
     return <Card key={selectedCard.location} 
                      location={selectedCard.location} 
                      data={selectedCard.data}
@@ -40,7 +42,12 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
         mappedSectedCards[1]
       }
     </div>
-  )
-}
+  );
+};
 
 export default CompareContainer;
+
+CompareContainer.PropTypes = {
+  selectedArray: PropTypes.array,
+  changeClass: PropTypes.func
+};

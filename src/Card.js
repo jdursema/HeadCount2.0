@@ -1,12 +1,13 @@
 import React from 'react';
-import './style/Card.css'
+import './style/Card.css';
 import PropTypes from 'prop-types';
 
 const Card = ({location, data, changeClass, type}) => {
-  const years = Object.keys(data)
+  const years = Object.keys(data);
+
   return (
     <div className={type}
-         onClick={() => changeClass(location)} >
+      onClick={() => changeClass(location)} >
       <h3>{location}</h3>
         <table>
          <tbody>
@@ -30,16 +31,18 @@ const Card = ({location, data, changeClass, type}) => {
             
           })
         }
+
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
 export default Card;
 
 Card.propTypes = {
   location: PropTypes.string,
   data: PropTypes.object,
-  onChange: PropTypes.func
-}
+  onChange: PropTypes.func,
+  type: PropTypes.string
+};

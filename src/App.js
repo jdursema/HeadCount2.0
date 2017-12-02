@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css'
+import './App.css';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import DistrictRepository from './helper';
 import Header from './Header';
 import CardContainer from './CardContainer';
 import Search from './Search';
-import CompareContainer from './CompareContainer'
+import CompareContainer from './CompareContainer';
 
 const district = new DistrictRepository(kinderData);
 
@@ -16,13 +16,14 @@ class App extends Component {
     this.state = {
       data: [],
       selectedArray: []
-    }
+    };
 
     this.changeClass = this.changeClass.bind(this);
     this.search = this.search.bind(this);
     this.compareCard = this.compareCard.bind(this);
   }
   
+
 
 componentDidMount() {
   this.setState({data: district.data})
@@ -39,15 +40,15 @@ changeClass(location) {
   })
   
     if(filteredArray.length>=1){
-      let removedLocationArray = this.state.selectedArray.filter(dataPiece => {
-        return dataPiece.location !== location
-      })
-      this.setState({selectedArray: removedLocationArray})
+      let removedLocationArray = this.state.selectedArray.filter(dataPiece => dataPiece.location !== location);
+      
+      this.setState({selectedArray: removedLocationArray});
 
     } else {
       if(this.state.selectedArray.length<=1){
         const selected = [...this.state.selectedArray, district.findByName(location)];
-        this.setState({selectedArray: selected})
+
+        this.setState({selectedArray: selected});
       }
       
     }
@@ -57,6 +58,7 @@ changeClass(location) {
 compareCard(location1, location2) {
   return district.compareDistrictAverages(location1, location2)
 }
+
 
   render() {
     return (
