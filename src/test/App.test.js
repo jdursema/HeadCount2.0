@@ -7,6 +7,14 @@ import kinderData from '../../data/kindergartners_in_full_day_program';
 
 
 describe('App Test', () => {
+
+  it('should be defined', () => {
+    const renderedApp = shallow(<App />);
+
+    expect(renderedApp).toBeDefined();
+
+  });
+
   it('should render the correct components', ()=>{
     const renderedApp = shallow(<App />)
     const foundHeader = renderedApp.find('Header')
@@ -50,9 +58,6 @@ describe('App Test', () => {
 
     expect(renderedApp.state('data')).toEqual( [{"data": {"2004": 1, "2005": 1, "2006": 1, "2007": 1, "2008": 1, "2009": 1, "2010": 1, "2011": 1, "2012": 1, "2013": 1, "2014": 0.992}, "location": "ASPEN 1"}])
 
-    
-    
-
   })
 
   it('state should equal an empty array if the search input doesnt match any of the data', () => {
@@ -65,7 +70,109 @@ describe('App Test', () => {
 
     expect(renderedApp.state('data')).toEqual([])
     
-    
+  })
+
+  it('should return full data set if search input is an empty string', () => {
+    const renderedApp = mount(<App/>)
+    const district = new DistrictRepository(kinderData);
+    const foundSearch = renderedApp.find('Search')
+    const searchInput = foundSearch.find('input')
+
+    searchInput.simulate('change', {target: {value: ''}})
+
+    expect(renderedApp.state('data')).toEqual(district.data)
+
+  });
+
+  it('should populate selectedArray on click of a card', () => {
+    const renderedApp = mount(<App/>);
+    const district = new DistrictRepository(kinderData);
+    const foundCard1 = renderedApp.find('.ASPEN');
+    const foundCard2 = renderedApp.find('.SUMMIT')
+    expect(renderedApp.state('selectedArray')).toEqual([])
+    foundCard1.simulate('click')
+    expect(renderedApp.state('selectedArray').length).toEqual(1);
+    foundCard2.simulate('click');
+    expect(renderedApp.state('selectedArray').length).toEqual(2);
+
+  });
+
+  it('should allow two cards in the selectedArray', () => {
+    const renderedApp = mount(<App/>);
+    const district = new DistrictRepository(kinderData);
+    const foundCard1 = renderedApp.find('.ASPEN');
+    const foundCard2 = renderedApp.find('.SUMMIT');
+    const foundCard3 = renderedApp.find('.AGATE');
+
+     expect(renderedApp.state('selectedArray')).toEqual([])
+    foundCard1.simulate('click')
+    expect(renderedApp.state('selectedArray').length).toEqual(1);
+    foundCard2.simulate('click');
+    expect(renderedApp.state('selectedArray').length).toEqual(2);
+    foundCard3.simulate('click');
+    expect(renderedApp.state('selectedArray').length).toEqual(2);
+
+  })
+
+  it('should take out a card from the selectedArray when clicked on twice', () => {
+    const renderedApp = mount(<App/>);
+    const district = new DistrictRepository(kinderData);
+    const foundCard1 = renderedApp.find('.ASPEN');
+
+    expect(renderedApp.state('selectedArray')).toEqual([]);
+    foundCard1.simulate('click');
+    expect(renderedApp.state('selectedArray').length).toEqual(1);
+    foundCard1.simulate('click');
+    expect(renderedApp.state('selectedArray').length).toEqual(0);
+
+  })
+
+  it('should have a class name of selected if the card is in the selected array', () => {
+    const renderedApp = mount(<App/>);
+    const district = new DistrictRepository(kinderData);
+
+    const coloradoData= district.data.find(data=> data.location==='COLORADO')
+     const aspenData= district.data.find(data=> data.location==='ASPEN 1')
+
+    expect(renderedApp.find('.selected').length).toEqual(0)
+     renderedApp.instance().setState({selectedArray: [coloradoData]})
+    renderedApp.update()
+    expect(renderedApp.find('.selected').length).toEqual(1)
+
+    renderedApp.instance().setState({selectedArray: [coloradoData, aspenData]})
+    renderedApp.update()
+
+    expect(renderedApp.find('.selected').length).toEqual(2)
+
+  })
+
+  it('should render the selected cards within the Compare Container', () => {
+    const renderedApp = mount(<App/>);
+    const district = new DistrictRepository(kinderData);
+
+    const coloradoData= district.data.find(data=> data.location==='COLORADO')
+    const aspenData= district.data.find(data=> data.location==='ASPEN 1')
+    let compareContainerWrapper = renderedApp.find('CompareContainer')
+    // console.log(compareContainerWrapper.debug())
+
+    expect(compareContainerWrapper.find('.card').length).toEqual(0)
+
+    renderedApp.instance().setState({selectedArray: [coloradoData]})
+    renderedApp.update()
+    compareContainerWrapper = renderedApp.find('CompareContainer')
+
+
+    expect(compareContainerWrapper.find('.card').length).toEqual(1)
+
+    renderedApp.instance().setState({selectedArray: [coloradoData, aspenData]})
+    renderedApp.update()
+    compareContainerWrapper = renderedApp.find('CompareContainer')
+
+
+    expect(compareContainerWrapper.find('.card').length).toEqual(2)
+
+
+
 
   })
 

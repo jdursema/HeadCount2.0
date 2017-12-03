@@ -1,10 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-// import ReactDOM from 'react-dom';
-// import setUpTest from './setUpTests';
 import Card from '../Card';
-
-// configure({ adapter: new Adapter() });
 
 describe('Card Test', () => {
 
@@ -52,6 +48,15 @@ describe('Card Test', () => {
     expect(card.find('.high').length).toEqual(2)
     expect(card.find('.low').length).toEqual(1)
     
+  });
+
+  it('should match snap shot of the card', () => {
+    const mockFunc = jest.fn();
+    const data = {location: 'COLORADO', data: {2004: 1, 2005: .5}}
+    const type = 'card'
+    const card = shallow(<Card location={data.location} data={data.data} changeClass={mockFunc} type={type}/>);
+
+    expect(card).toMatchSnapshot();
   })
   
 
