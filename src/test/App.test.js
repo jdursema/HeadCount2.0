@@ -153,7 +153,6 @@ describe('App Test', () => {
     const coloradoData= district.data.find(data=> data.location==='COLORADO')
     const aspenData= district.data.find(data=> data.location==='ASPEN 1')
     let compareContainerWrapper = renderedApp.find('CompareContainer')
-    // console.log(compareContainerWrapper.debug())
 
     expect(compareContainerWrapper.find('.card').length).toEqual(0)
 
@@ -170,10 +169,31 @@ describe('App Test', () => {
 
 
     expect(compareContainerWrapper.find('.card').length).toEqual(2)
+  })
+
+  it('should only render the compare card when two cards are in the selected array', () => {
+    const renderedApp = mount(<App/>);
+    const district = new DistrictRepository(kinderData);
+
+    const coloradoData= district.data.find(data=> data.location==='COLORADO')
+    const aspenData= district.data.find(data=> data.location==='ASPEN 1')
+    let compareContainerWrapper = renderedApp.find('CompareContainer')
+
+    expect(compareContainerWrapper.find('.compare-card').length).toEqual(0)
+
+    renderedApp.instance().setState({selectedArray: [coloradoData]})
+    renderedApp.update()
+    compareContainerWrapper = renderedApp.find('CompareContainer')
 
 
+    expect(compareContainerWrapper.find('.compare-card').length).toEqual(0)
+
+    renderedApp.instance().setState({selectedArray: [coloradoData, aspenData]})
+    renderedApp.update()
+    compareContainerWrapper = renderedApp.find('CompareContainer')
 
 
+    expect(compareContainerWrapper.find('.compare-card').length).toEqual(1)
   })
 
 
