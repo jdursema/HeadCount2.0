@@ -22,9 +22,11 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
     keys= Object.keys(comparisonData)
     mappedCompared=
       <div className= 'compare-card'>
-        <h3 className='location-1 average'> {keys[0]}: {comparisonData[keys[0]]} </h3>
+        <h3 className='location-1 average'> {keys[0]}: </h3>
+        <h3 className= 'location-1 value'>{comparisonData[keys[0]]}</h3>
         <h1 className='comparison'>{comparisonData[keys[2]]}</h1>
-        <h3 className='location-2 average'>{keys[1]}: {comparisonData[keys[1]]}</h3>
+        <h3 className='location-2 average'>{keys[1]}: </h3>
+        <h3 className='location-2 value'>{comparisonData[keys[1]]}</h3>
       </div>
   }
 

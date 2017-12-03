@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-around;
   height: 475px;
+  padding-top: 5%;
 }
 
 .compare-card{
@@ -14,8 +15,13 @@
 
 .comparison{
   font-size: 100px;
+  color: #FFD166;
 }
 
 .average{
+  font-size: 25px;
+}
+
+.value{
   font-size: 25px;
 }
