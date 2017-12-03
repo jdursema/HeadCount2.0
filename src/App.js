@@ -1,10 +1,15 @@
+/*eslint-disable no-unused-vars*/
 import React, { Component } from 'react';
 import './App.css';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import DistrictRepository from './helper';
+/*eslint-disable no-unused-vars*/
 import Header from './Header';
+/*eslint-disable no-unused-vars*/
 import CardContainer from './CardContainer';
+/*eslint-disable no-unused-vars*/
 import Search from './Search';
+/*eslint-disable no-unused-vars*/
 import CompareContainer from './CompareContainer';
 
 const district = new DistrictRepository(kinderData);
@@ -25,19 +30,21 @@ class App extends Component {
   
 
 
-componentDidMount() {
-  this.setState({data: district.data})
-}
+  componentDidMount() {
+    this.setState({data: district.data});
+  }
 
-search(string)  {
-  let filteredData= district.findAllMatches(string)
-  this.setState({data: filteredData})
-}
+  search(string)  {
+    let filteredData= district.findAllMatches(string);
 
-changeClass(location) {
-  let filteredArray = this.state.selectedArray.filter(dataPiece => {
-    return dataPiece.location === location
-  })
+    this.setState({data: filteredData});
+  }
+
+  changeClass(location) {
+    let filteredArray = this.state.selectedArray.filter(dataPiece => {
+
+      return dataPiece.location === location;
+    });
   
     if(filteredArray.length>=1){
       let removedLocationArray = this.state.selectedArray.filter(dataPiece => dataPiece.location !== location);
@@ -50,14 +57,12 @@ changeClass(location) {
 
         this.setState({selectedArray: selected});
       }
-      
-    }
-  
-}
+    }  
+  }
 
-compareCard(location1, location2) {
-  return district.compareDistrictAverages(location1, location2)
-}
+  compareCard(location1, location2) {
+    return district.compareDistrictAverages(location1, location2);
+  }
 
 
   render() {
