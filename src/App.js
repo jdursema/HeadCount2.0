@@ -64,7 +64,6 @@ class App extends Component {
     return district.compareDistrictAverages(location1, location2);
   }
 
-
   render() {
     return (
       <div>

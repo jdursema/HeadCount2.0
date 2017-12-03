@@ -7,7 +7,7 @@ const Card = ({location, data, changeClass, type}) => {
   const years = Object.keys(data);
 
   return (
-    <div className={type}
+    <div className={`${type}  ${location}`}
       onClick={() => changeClass(location)} >
       <h3>{location}</h3>
       <table>

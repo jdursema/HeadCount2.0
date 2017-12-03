@@ -1,0 +1,141 @@
+exports[`CompareContainer  should match snap shot of compare container 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CompareContainer
+    changeClass={[Function]}
+    compareCard={[Function]}
+    selectedArray={
+        Array [
+            Object {
+              "data": Object {
+                "2001": 0.5,
+              },
+              "location": "COLORADO",
+            },
+          ]
+    } />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Card
+          changeClass={[Function]}
+          data={
+                    Object {
+                              "2001": 0.5,
+                            }
+          }
+          location="COLORADO"
+          type="card" />,
+        <div />,
+        undefined,
+      ],
+      "className": "compared-cards-section",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "COLORADO",
+        "nodeType": "function",
+        "props": Object {
+          "changeClass": [Function],
+          "data": Object {
+            "2001": 0.5,
+          },
+          "location": "COLORADO",
+          "type": "card",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      undefined,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Card
+            changeClass={[Function]}
+            data={
+                        Object {
+                                    "2001": 0.5,
+                                  }
+            }
+            location="COLORADO"
+            type="card" />,
+          <div />,
+          undefined,
+        ],
+        "className": "compared-cards-section",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "COLORADO",
+          "nodeType": "function",
+          "props": Object {
+            "changeClass": [Function],
+            "data": Object {
+              "2001": 0.5,
+            },
+            "location": "COLORADO",
+            "type": "card",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        undefined,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactFifteenAdapter {
+      "options": Object {
+        "supportPrevContextArgumentOfComponentDidUpdate": true,
+      },
+    },
+  },
+}
+`;
