@@ -1,5 +1,5 @@
 .header {
-  background-color: #E5CBCA;
+  background-color: #073B4C;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,8 @@
 }
 
 h1 {
-  font-size: 33px;
+  font-size: 50px;
   margin: 0px;
-  color: #0D334F;
+  color: white;
+  font-family: 'Playfair Display', serif;
 }

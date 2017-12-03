@@ -3,4 +3,25 @@
   flex-direction: row;
   justify-content: space-around;
   height: 475px;
+  padding-top: 5%;
+}
+
+.compare-card{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 305px;
+}
+
+.comparison{
+  font-size: 100px;
+  color: #FFD166;
+}
+
+.average{
+  font-size: 25px;
+}
+
+.value{
+  font-size: 25px;
 }
