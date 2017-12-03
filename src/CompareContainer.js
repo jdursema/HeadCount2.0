@@ -1,18 +1,21 @@
+/*eslint-disable no-unused-vars*/
 import React from 'react';
+/*eslint-disable no-unused-vars*/
 import Card from './Card';
 import PropTypes from 'prop-types';
-import './style/CompareContainer.css'
+import './style/CompareContainer.css';
 
 const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
   const mappedSectedCards= selectedArray.map((selectedCard)=>{
 
     return <Card key={selectedCard.location} 
-                     location={selectedCard.location} 
-                     data={selectedCard.data}
-                     changeClass={changeClass}
-                     type = 'card'
-                     />
+      location={selectedCard.location} 
+      data={selectedCard.data}
+      changeClass={changeClass}
+      type = 'card'
+    />;
   });
+
   let comparisonData;
   let keys;
   let mappedCompared;
@@ -28,11 +31,9 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
         <h3 className='location-2 average'>{keys[1]}: </h3>
         <h3 className='location-2 value'>{comparisonData[keys[1]]}</h3>
       </div>
+
   }
 
-
-  
-  
   return(
     <div className='compared-cards-section'>
       {
@@ -55,5 +56,5 @@ export default CompareContainer;
 CompareContainer.PropTypes = {
   selectedArray: PropTypes.array,
   changeClass: PropTypes.func,
-  compareCard: PropTypes.string
+  compareCard: PropTypes.func
 };

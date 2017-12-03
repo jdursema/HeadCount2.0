@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars*/
 import React from 'react';
 import './style/search.css';
 import PropTypes from 'prop-types';
@@ -15,4 +16,4 @@ export default Search;
 
 Search.propTypes = {
   search: PropTypes.func
-}
+};
