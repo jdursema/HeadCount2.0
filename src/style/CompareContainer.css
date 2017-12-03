@@ -4,3 +4,18 @@
   justify-content: space-around;
   height: 475px;
 }
+
+.compare-card{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 305px;
+}
+
+.comparison{
+  font-size: 100px;
+}
+
+.average{
+  font-size: 25px;
+}
