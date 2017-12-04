@@ -25,3 +25,8 @@
 .value{
   font-size: 25px;
 }
+
+.compareContainer-header {
+  text-align: center;
+  font-size: 18px;
+}
