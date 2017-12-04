@@ -30,3 +30,14 @@
   text-align: center;
   font-size: 18px;
 }
+
+.start-page{
+  display: flex;
+  justify-content: center;
+}
+
+h2{
+  margin: 5%;
+  font-family: 'Playfair Display', serif;
+  display: flex;
+}
