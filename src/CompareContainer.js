@@ -34,11 +34,11 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
 
   }
 
-  if (selectedArray.length===0){
+  if (selectedArray.length===0) {
     return <div className='start-page'>
       <h2>Please select two schools</h2>
-    </div>
-  }else{
+    </div>;
+  } else {
     return (
       <div className="compareContainer-header">
       
