@@ -34,25 +34,31 @@ const CompareContainer = ({selectedArray, changeClass, compareCard}) => {
 
   }
 
-  return ( 
-    <div className="compareContainer-header">
-     Select Two Schools to Compare
-      <div className='compared-cards-section'>
-
-        {
-          mappedSectedCards[0]
-        }
-      
-        <div>
-          {mappedCompared}
-        </div>
-      
-        {
-          mappedSectedCards[1]
-        }
-      </div>
+  if (selectedArray.length===0){
+    return <div className='start-page'>
+      <h2>Please select two schools</h2>
     </div>
-  );
+  }else{
+    return (
+      <div className="compareContainer-header">
+      
+        <div className='compared-cards-section'>
+  
+          {
+            mappedSectedCards[0]
+          }
+        
+          <div>
+            {mappedCompared}
+          </div>
+        
+          {
+            mappedSectedCards[1]
+          }
+        </div>
+      </div>
+    );
+  }
 };
 
 export default CompareContainer;
